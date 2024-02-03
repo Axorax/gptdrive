@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gptdrive - youtube.com/axorax</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="dropzone">
+    <div class="modal" id="token-modal">
+      <div>
+        <p>Enter your ChatGPT session token</p>
+        <input type="text" id="token-input" placeholder="Paste token here..." />
+        <button onclick="setToken()">Set session token</button>
+      </div>
+    </div>
+
+    <div class="drives-container">
+      <input
+        type="text"
+        id="search-drives"
+        placeholder="🔎︎ search drives"
+        oninput="searchDrives(this)"
+      />
+      <ul></ul>
+    </div>
+
+    <div class="main dropzone">
+      <div>
+        <div class="search-wrapper">
+          <input
+            oninput="searchFiles(this)"
+            type="text"
+            id="search-files"
+            placeholder="🔎︎ search files"
+          />
+          <button onclick="openUploadModal()">upload</button>
+        </div>
+        <ul>
+          <p>Click on a drive to view its content!</p>
+        </ul>
+      </div>
+      <div class="overlay" onclick="openUploadModal()"></div>
+      <div class="upload-modal dropzone">
+        <div>
+          <p>upload file to drive</p>
+          <div class="uploadBox dropzone">
+            <p>Drag and drop</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

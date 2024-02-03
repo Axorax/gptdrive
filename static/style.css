@@ -1,0 +1,276 @@
+@font-face {
+  font-family: "default";
+  src: url("./notosans.ttf");
+}
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "default", sans-serif;
+}
+
+body {
+  background: #121212;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 9;
+
+  &.active {
+    display: flex;
+  }
+}
+
+button {
+  padding: 0.5rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background: #6c6cff;
+  border: none;
+  cursor: pointer;
+  transition: 200ms ease;
+
+  &:hover {
+    background: #5a5afd;
+  }
+}
+
+#token-modal {
+  & div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  & p {
+    font-size: 1.5rem;
+  }
+
+  & input {
+    width: 100%;
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  & button {
+    width: 100%;
+    padding: 0.7rem;
+  }
+}
+
+input {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: 1px solid #3d3d3d;
+  background: #222222;
+
+  &:focus {
+    outline: 1px solid #6c6cff;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #454545;
+  border-radius: 100vw;
+  border: 4px solid #1a1a1a;
+}
+
+.main {
+  margin-left: 17rem;
+  width: calc(100% - 17rem);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  & > div:first-child {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+
+    & li {
+      border-radius: 7px;
+      border: 1px solid #3d3d3d;
+      min-width: 12rem;
+      cursor: default;
+
+      & p:not(.name) {
+        border-top: 1px solid #3d3d3d;
+        text-align: left !important;
+        display: flex;
+      }
+
+      .name {
+        padding: 1.8rem 1rem;
+      }
+
+      & p {
+        text-align: center;
+        padding: 0.3rem 0.8rem;
+
+        & span:first-child {
+          color: #8e8e8e;
+        }
+
+        & span:last-child {
+          margin-left: auto;
+        }
+      }
+
+      & button {
+        width: 100%;
+        border-top: 1px solid #3d3d3d;
+        background: transparent;
+        border-radius: 0;
+        font-size: 1rem;
+        cursor: pointer !important;
+
+        &:hover {
+          background: #1a1a1a;
+        }
+      }
+    }
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+
+  & button {
+    background: #202020;
+    min-width: 7rem;
+    border: 1px solid #3d3d3d;
+
+    &:hover {
+      border-color: #6c6cff;
+    }
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(3px);
+  z-index: 7;
+  background: #00000077;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.upload-modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  z-index: 8;
+  background: #1a1a1a;
+  border-radius: 5px;
+  max-width: 100%;
+  width: 20rem;
+
+  &.active {
+    display: block;
+  }
+
+  & > div {
+    width: 100%;
+  }
+
+  & > div > p {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .uploadBox {
+    width: 100%;
+    height: 13rem;
+    border: 2px dashed #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
+.drives-container {
+  padding: 1rem;
+  border-right: 1px solid #3d3d3d;
+  width: 17rem;
+  height: 100vh;
+  background: #1a1a1a;
+  overflow-y: scroll;
+  position: fixed;
+
+  & > input {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  & ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+
+    & li {
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: default;
+      user-select: none;
+      background: #222222;
+      border: 1px solid #3d3d3d;
+
+      &.active {
+        background: #6c6cff;
+      }
+
+      &:hover {
+        background: #323232;
+      }
+    }
+  }
+}
